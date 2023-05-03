@@ -15,9 +15,12 @@
   örnek input:  ""
   örnek output: ""
 */
+function dosyaAdiniBul(path) {
+  const array=path.split("/");
+  const length=array.length;
+  return array[length-1];
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+  
 }
 
 /*
@@ -38,15 +41,26 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayıArray) {
+  let toplam=0;
+  if(typeof(sayıArray) == 'number') 
+  return sayıArray
+  if(sayıArray.length==0)
+  return null;
+ for (let i in sayıArray){
+  toplam+=sayıArray[i];
+  console.log(toplam,sayıArray.length);
+ }
+return toplam/(sayıArray.length)
 }
 
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
-  - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik ortalamasından büyük ya da eşit elemanlardan oluşan bir array dönmeli.
-  * Çağırırken kendi ortalama fonksiyonunla çağırabilirsin, ama parametrenin tanımlama aşamasında soyut bir ifade olduğunu unutma.
+  - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik
+   ortalamasından büyük ya da eşit elemanlardan oluşan bir array dönmeli.
+  * Çağırırken kendi ortalama fonksiyonunla çağırabilirsin, ama parametrenin tanımlama aşamasında
+    soyut bir ifade olduğunu unutma.
   * f(x) = 2x+5 içerisindeki x değeri gibi.
 
   örnek input:  []
@@ -62,10 +76,27 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+function ortalamadanBuyukleriBul(sayıArray,ortalamaBul) {
+  const ortalamadanBuyukler=[];
+  if(sayıArray.length==1)
+     return sayıArray;
+  if(typeof(sayıArray) == 'number') {
+    ortalamadanBuyukler.push(sayıArray);
+     return ortalamadanBuyukler
+  }
+    if(sayıArray.length==0)
+      return null;
+  const ortalama=ortalamaBul(sayıArray);
+  
+  for(let i in sayıArray){
+    
+    if (sayıArray[i]>ortalama)
+        ortalamadanBuyukler.push(sayıArray[i]);
 
+  }
+  return ortalamadanBuyukler;
+}
+console.log(ortalamadanBuyukleriBul(5));
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
   console.log("Kodlar sorunsuz çalışıyor!");
